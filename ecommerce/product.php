@@ -42,4 +42,4 @@ include('templates/header.php');
 
 <?php include('templates/footer.php'); ?>
 
-<script src="assets/js/main.js"></script> 
+<script src="assets/js/main.js"></script>

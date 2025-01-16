@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.php">REBE Shop</a>
+            <a class="navbar-brand" href="/index.php">REBE Cases</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,14 +23,27 @@
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="search.php">Product search</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="login.php"><i class="fas fa-user"> Login </i></a>
+                        <a class="nav-link" href="search.php">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> Cart <span id="cart-count" class="badge custom-badge">0</span></a>
                     </li>
+                    <?php if (isset($_SESSION['user_name'])): ?>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user"></i> <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="userMenu">
+                                <li><a class="dropdown-item" href="user/profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="user/logout.php">Logout</a></li>
+                            </ul>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php"><i class="fas fa-user"></i> Login</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -46,9 +59,11 @@
     <div class="header-bg" style="background-image: url('<?php echo isset($header_bg_image) ? $header_bg_image : 'assets/images/header_bg.jpg'; ?>'); background-size: cover; height: 300px; position: relative;">
         <div class="header-overlay"></div>
         <div class="text-center text-white" style="padding-top: 100px; position: relative; z-index: 2;">
-            <h1><?php echo isset($header_text) ? $header_text : 'Welcome to REBE Shop!'; ?></h1>
+            <h1><?php echo isset($header_text) ? $header_text : 'Welcome to REBE cases!'; ?></h1>
             <p><?php echo isset($header_subtext) ? $header_subtext : 'Shop the best phone cases for your phone :D'; ?></p>
         </div>
     </div>
+
+
 </body>
 </html>

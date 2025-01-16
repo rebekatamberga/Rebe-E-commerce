@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $page_title = "Thank you for shopping with us!";
 $header_bg_image = "assets/images/cart_header_bg.jpg";  
@@ -42,7 +41,7 @@ include('templates/header.php');
                 <td>${item.name}</td>
                 <td>£${item.price}</td>
                 <td>${item.quantity}</td>
-                <td>£${(item.price * item.quantity).toFixed(2)}</td>
+                <td>£${(item.price * item.quantity).toFixed()}</td>
                 <td><button class="btn btn-danger" onclick="removeFromCart(${item.id})">Remove</button></td>
             </tr>`;
             cartItemsContainer.innerHTML += row;
@@ -57,4 +56,4 @@ include('templates/header.php');
     }
 </script>
 
-<?php include('footer.php'); ?>
+<?php include('templates/footer.php'); ?>
